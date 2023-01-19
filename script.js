@@ -23,16 +23,16 @@ var text = $("textarea")
 		localStorage.setItem(textTime, textValue)
 	})
 // stores the values saved in textarea to local storage
-$("#hour-8am .description").val(localStorage.getItem("hour-8am"))
-$("#hour-9am .description").val(localStorage.getItem("hour-9am"))
-$("#hour-10am .description").val(localStorage.getItem("hour-10am"))
-$("#hour-11am .description").val(localStorage.getItem("hour-11am"))
-$("#hour-12pm .description").val(localStorage.getItem("hour-12pm"))
-$("#hour-1pm .description").val(localStorage.getItem("hour-1pm"))
-$("#hour-2pm .description").val(localStorage.getItem("hour-2pm"))
-$("#hour-3pm .description").val(localStorage.getItem("hour-3pm"))
-$("#hour-4pm .description").val(localStorage.getItem("hour-4pm"))
-$("#hour-5pm .description").val(localStorage.getItem("hour-5pm"))
+$("#hour-8 .description").val(localStorage.getItem("hour-8"))
+$("#hour-9 .description").val(localStorage.getItem("hour-9"))
+$("#hour-10 .description").val(localStorage.getItem("hour-10"))
+$("#hour-11 .description").val(localStorage.getItem("hour-11"))
+$("#hour-12 .description").val(localStorage.getItem("hour-12"))
+$("#hour-1 .description").val(localStorage.getItem("hour-1"))
+$("#hour-2 .description").val(localStorage.getItem("hour-2"))
+$("#hour-3 .description").val(localStorage.getItem("hour-3"))
+$("#hour-4 .description").val(localStorage.getItem("hour-4"))
+$("#hour-5 .description").val(localStorage.getItem("hour-5"))
 	
 	// TODO: Add code to apply the past, present, or future class to each time
 	// block by comparing the id to the current hour. HINTS: How can the id
@@ -41,18 +41,26 @@ $("#hour-5pm .description").val(localStorage.getItem("hour-5pm"))
 	// current hour in 24-hour time?
 	var currentTime = dayjs().format('h')
 	var textTime = $(this).parent().attr("id")
-	var hour = $(this).parent().attr('.class')
-	
-	
 	var schTime = document.querySelectorAll("textarea")
+	// let past = $("textarea").parent().addClassEl('past')
+	// let present = $("textarea").parent().addClassEl('present')
+	// let future = $("textarea").parent().addClassEl('future')
+	
+	console.log(schTime.length)
+	console.log(currentTime)
+	console.log(schTime)
+//loop to apply past, present, and future classes
 	for (var i = 0; i < schTime.length; i++){
-		if (schTime[i].dataset.hour < currentTime) {
-		
-			console.log(currentTime)
-		schTime[i].setAttribute('class', 'past')
+		if (schTime[i] === currentTime) {
+			$(schTime).addClass('present');
+	console.log(schTime.i)
+
+			
+			console.log(schTime[i].dataset.hour)
 	}
 			// console.log(typeof schTime[i].dataset.hour)
-		}
+		}			// schTime[i].setAttribute('class', 'past')
+
 		
 	// TODO: Add code to get any user input that was saved in localStorage and set
 	// the values of the corresponding textarea elements. HINT: How can the id
